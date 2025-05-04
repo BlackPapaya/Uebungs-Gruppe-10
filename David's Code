@@ -1,0 +1,301 @@
+import java.util.Arrays;
+
+public class Main {
+
+    //Aufgabe 1 a)
+
+    private static void mathematischeBerechnungen() {
+
+        double loesung = Math.sin(1.2) + Math.cos(2.3) - Math.log(10) / Math.sqrt(7);
+
+        System.out.println("Die Lösung lautet " + loesung);
+    }
+
+    //Aufgabe 1b)
+
+    private static void primzahlprüfung() {
+
+        int zahl = (int) (Math.random() * 91 + 10);
+        if (zahl < 2) {
+            System.out.println("Ist keine Primzahl");
+        } else
+
+        {
+            boolean istPrimzahl = false;
+
+            for (int i = 2; i <= Math.sqrt(zahl); i++) {
+                if (zahl % i == 0) {
+                    istPrimzahl = false;
+                    break;
+                }
+            }
+
+
+            System.out.println(zahl + (istPrimzahl ? " ist eine Primzahl" : " ist keine Primzahl"));
+
+        }
+    }
+
+
+
+    //Aufgabe 1c)
+    private static void kgv() {
+        int zahl = (int) (Math.random() * 41 + 20);
+        int zahl2 = (int) (Math.random() * 41 + 20);
+
+        int groesser = Math.max(zahl, zahl2);
+        int kgv = groesser;
+        while (kgv % zahl != 0 || kgv % zahl2 != 0) {
+            kgv++;
+        }
+
+        System.out.println("Zahl 1 " + zahl + " und Zahl 2 " + zahl2 + " und das kleinste gemeinsame Vielfache ist " + kgv);
+
+    }
+    //Aufgabe 1d)
+
+    private static void zeichenkette() {
+        String text = "Java Programmierung";
+        text = text.toLowerCase();
+        text = text.replace(" ", "");
+
+        String leer = "";
+        for (int i = 0; i < 5; i++) {
+            leer += text;
+        }
+        System.out.println(leer);
+
+
+    }
+
+    //Aufgabe 2a)
+    public static void kommando(String[] args) {
+
+        if (args.length == 0) {
+            System.out.println("Es wurden keine Parameter übergeben");
+            return;
+        }
+
+        System.out.println("Anzahl " + args.length);
+
+
+        for (int i = 0; i < args.length; i++) {
+            String Parameter = args[i];
+            int länge = Parameter.length();
+            System.out.println("Parameter: " + (i + 1) + " " + Parameter + " ,und hat " + länge + " Zeichen");
+        }
+    }
+    //Aufgabe 2b)
+
+    public static void umkehr(String[] args) {
+
+        if (args.length == 0) {
+            System.out.println("Es wurden keine Parameter übergeben");
+
+        } else
+            System.out.println("Anzahl " + args.length);
+
+        System.out.println("Umgekehrte Reihenfolge der Parameter");
+        for (int i = args.length - 1; i >= 0; i++) {
+            System.out.println("Parameter: " + (args.length - i) + " " + args[i]);
+        }
+    }
+
+    //Aufgabe 2c)
+
+    public static void buchzählen(String[] args) {
+        int count = 0;
+
+        for (String arg : args) {
+
+            for (int i = 0; i < arg.length(); i++) {
+
+
+                char c = arg.charAt(i);
+
+
+                if (c == 'a' || c == 'A') {
+
+                    count++;
+                }
+            }
+
+        }
+        System.out.println("Anzahl der Buchstaben 'a' oder 'A'" + count);
+    }
+
+    //Aufgabe 2d)
+
+    public static void wortzählen(String[] args) {
+        int count = 0;
+
+        for (String arg : args) {
+
+            int länge = arg.length();
+
+            count += arg.length();
+
+            System.out.println(arg);
+
+
+        }
+        double berechnung = (double) count / args.length;
+        System.out.println(" Durchschnitt der Wörter " + berechnung);
+    }
+
+    //Aufgabe 3a)
+
+
+    private static int nextSquareNumber(int zahl) {
+
+        int qwurzel  = (int) Math.sqrt(zahl) + 1;
+
+        return qwurzel * qwurzel;
+
+
+
+    }
+
+    //Aufgabe 3b)
+
+    private static int myRandom() {
+
+        int i = (int) (Math.random() * 10000 + 1);
+        return i;
+    }
+
+    //Aufgabe 3c)
+
+    private static boolean isPrimzahl(int zahl) {
+
+        boolean istPrimzahl = true;
+        if (zahl < 2)
+            istPrimzahl = false;
+
+        {
+
+            for (int i = 2; i <= Math.sqrt(zahl); i++) {
+                if (zahl % i == 0) {
+                    istPrimzahl = false;
+                    break;
+                }
+            }
+        }
+        return istPrimzahl;
+    }
+
+    //Aufgabe 3d) --> in main
+
+
+    //Aufgabe 4a)
+    private static int minimum(int[] y) {
+
+        int min = y[0];
+
+
+        for (int n = 0; n < y.length; n++) {
+
+            if (y[n] < min) {
+
+                min = y[n];
+            }
+
+        }
+
+    return min;
+    }
+
+    //Aufgabe 4b)
+    public static void printArray(int[] a) {
+
+
+        System.out.println("[");
+
+        for (int i = 0; i < a.length; i++) {
+
+            System.out.print(a[i]);
+
+            if (i < a.length - 1) {
+
+                System.out.print(", ");
+            }
+        }
+        System.out.println("]");
+    }
+
+    //Aufgabe 4c)
+    public static int[] randomArray(int lang, int ug, int og)
+    {
+        int[] a = new int[lang];
+
+        for (int i = 0; i < a.length; i++) {
+
+            a[i] = (int)(Math.random() * (og - ug)) + ug;
+        }
+
+        return a;
+    }
+
+
+
+    //Aufgabe 4d)
+    public static int[] umdrehen(int[] a) {
+
+
+        int[] b = new int[a.length];
+
+        for (int i = 0; i < a.length; i++) {
+            b[i] = -a[i];
+        }
+
+
+        return b;
+    }
+
+    //Aufgabe 4e)
+    public static void mao(String[] args) {
+        int[] x = randomArray(10, -100, 100);
+        System.out.println("Array: a ");
+
+        printArray(x);
+
+        int[] y = umdrehen(x);
+
+        System.out.println("Array: b ");
+
+
+        printArray(y);
+
+        int mini = minimum(x);
+                int miny = minimum(y);
+
+                System.out.println("Minimum in a: " + mini );
+
+                System.out.println("Minimum in b: " + miny );
+    }
+    public static void main(String[] args) {
+
+        int zufall = myRandom();
+        boolean isPrimzahl = isPrimzahl(zufall);
+        if (isPrimzahl == true)
+            System.out.println( zufall + " ist eine Primzahl");
+        else {
+            System.out.println(nextSquareNumber(zufall));
+        }
+
+        mathematischeBerechnungen();
+        primzahlprüfung();
+        kgv();
+        zeichenkette();
+        kommando(args);
+        buchzählen(args);
+        wortzählen(args);
+
+    }
+}
+
+
+
+
+
+
